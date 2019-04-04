@@ -1,0 +1,18 @@
+.app-header {
+    background: #FABC3C;
+    width: 100%;
+}
+
+h1 {
+    color: #fff;
+    display: contents;
+    font-size: bold;
+    position: absolute;
+}
+
+img {
+    width: 65px;
+    height: 65px;
+    left: 364px;
+    top: 0px;
+}
