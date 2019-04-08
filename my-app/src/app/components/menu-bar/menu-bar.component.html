@@ -1,10 +1,12 @@
 <div class="div-menu-bar">
-    <div class="div-date">
+    <div class="div-date col-6">
         <p>Día: {{ day }}/{{ month }}/{{ year }}</p>
         <p>Hora: {{ hour }}:{{ minutes }} </p>
     </div>
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary btn-menu">DESAYUNO</button>
-        <button type="button" class="btn btn-secondary btn-menu">OTRO MENÚ</button>
+    <div class="col-3">
+        <button type="button" class="btn btn-primary btn-menu" [routerLink]="['desayuno']">DESAYUNO</button>
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn btn-secondary btn-menu" [routerLink]="['otro-menu']">OTRO MENÚ</button>
     </div>
 </div>
