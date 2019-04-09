@@ -11,6 +11,11 @@ import { BreakfastComponent } from './components/breakfast/breakfast.component';
 import { RemainderComponent } from './components/remainder/remainder.component';
 import { OrderComponent } from './components/order/order.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AdditionalComponent } from './components/additional/additional.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +24,14 @@ import { OrderComponent } from './components/order/order.component';
     MenuBarComponent,
     BreakfastComponent,
     RemainderComponent,
-    OrderComponent
+    OrderComponent,
+    AdditionalComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
