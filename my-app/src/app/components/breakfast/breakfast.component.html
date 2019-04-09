@@ -1,3 +1,7 @@
-<p>
-  breakfast works!
-</p>
+<div *ngFor="let menu of breakfastMenu">
+    <div>
+        <!-- <button>{{ menu.item }} ${{ menu.precio }}</button> -->
+        <!-- (click)="getValueButton([{{ menu.item }}])" -->
+        <input type="button" value="{{ menu.item }} ${{menu.precio}}" (click)="getValueButton(menu.item)">
+    </div>
+</div>

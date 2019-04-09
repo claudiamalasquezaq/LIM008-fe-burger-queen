@@ -1,3 +1,7 @@
-<p>
-  remainder works!
-</p>
+<div *ngFor="let menu of remainderMenu">
+    <div>
+        <input type="button" value="{{ menu.item }} ${{menu.precio}}" (click)="getValueButton(menu.item)">
+    </div>
+</div>
+
+<app-additional></app-additional>
