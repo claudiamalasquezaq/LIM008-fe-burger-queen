@@ -1,0 +1,3 @@
+<div *ngFor="let burger of burgerSimple">
+    <input type="button" value="{{ burger.item }} ${{ burger.precio }}" (click)="getAddProduct(burger)" class="btn-product" />
+</div>
