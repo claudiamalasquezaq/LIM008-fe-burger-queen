@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import { SendDataService } from '../../services/send-data.service';
 
 @Component({
   selector: 'app-breakfast',
@@ -8,16 +9,18 @@ import { FirestoreService } from '../../services/firestore/firestore.service';
 })
 export class BreakfastComponent implements OnInit {
 
+
   public breakfastMenu = [];
 
   constructor(
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+    private sendDataService: SendDataService
   ) { }
 
-  getValueButton(value) {
-    console.log(value);
-    // return value;
+  getAddProduct(product) {
+    this.sendDataService.addOrder(product);
   }
+
 
   ngOnInit() {
     this.firestoreService.getBreakfast()
@@ -25,6 +28,9 @@ export class BreakfastComponent implements OnInit {
       this.breakfastMenu = this.breakfastMenu.concat(breakfastSnapshot);
       return this.breakfastMenu;
     });
+
+
+    // this.sendDataService.getProduct(this.breakfastMenu);
   }
 
 }
