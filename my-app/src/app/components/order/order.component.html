@@ -1,3 +1,8 @@
-<p>
-  order works!
-</p>
+<body class="body-order">
+    <p>{{ userName }}</p>
+    <div *ngFor="let product of order">
+        <p>{{ product.item }}</p>
+        <p>$ {{ product.precio }}</p>
+        <button class="btn-delete" (click)="deleteProduct(order, product.id)"></button>
+    </div>
+</body>
