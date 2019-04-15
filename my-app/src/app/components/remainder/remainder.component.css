@@ -1,0 +1,18 @@
+.btn-remainder {
+    background: #59CD90;
+    padding: 20px;
+    width: 270px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.div-menu {
+    padding: 30px;
+}
+
+.btn-burger {
+    background: greenyellow;
+    padding: 20px;
+    margin: 10px;
+    font-weight: 500;
+}
