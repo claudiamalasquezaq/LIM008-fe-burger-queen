@@ -30,10 +30,10 @@ export class FirestoreService {
         return { id, ...data};
       }))
     );
-  }
+  } 
 
-  getAdditionalItems(){
-    return this.firedata.collection('additionalProducts').snapshotChanges().pipe(
+  getBurgerSimple() {
+    return this.firedata.collection('burger-simple').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
@@ -42,8 +42,8 @@ export class FirestoreService {
     );
   }
 
-  getBurgerTaste(){
-    return this.firedata.collection('burgersTaste').snapshotChanges().pipe(
+  getBurgerDouble() {
+    return this.firedata.collection('burger-double').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
