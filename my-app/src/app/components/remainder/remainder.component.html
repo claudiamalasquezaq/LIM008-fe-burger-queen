@@ -1,7 +1,9 @@
-<div *ngFor="let menu of remainderMenu">
+<div>
+    <input type="button" value="Hamburguesa Simple" [routerLink]="['hamb-simple']" class="btn-burger"/>
+    <input type="button" value="Hamburguesa Doble" [routerLink]="['hamb-doble']" class="btn-burger"/>
+</div>
+<div *ngFor="let menu of remainderMenu" class="div-menu">
     <div>
-        <input type="button" value="{{ menu.item }} ${{menu.precio}}" (click)="getValueButton(menu.item)">
+        <input type="button" value="{{ menu.item }} ${{menu.precio}}" (click)="getAddProduct(menu)" class="btn-remainder">
     </div>
 </div>
-
-<app-additional></app-additional>
