@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import { SendDataService } from '../../services/send-data.service';
 
 @Component({
   selector: 'app-remainder',
@@ -10,12 +11,12 @@ export class RemainderComponent implements OnInit {
 
   public remainderMenu = [];
   constructor(
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+    private sendDataService: SendDataService
   ) { }
 
-  getValueButton(value) {
-    console.log(value);
-    // return value;
+  getAddProduct(product) {
+    this.sendDataService.addOrder(product);
   }
   ngOnInit() {
     this.firestoreService.getRemainder()
