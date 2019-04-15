@@ -14,7 +14,9 @@ import { OrderComponent } from './components/order/order.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AdditionalComponent } from './components/additional/additional.component';
+import { UserComponent } from './components/user/user.component';
+import { BurgerSimpleComponent } from './components/burger-simple/burger-simple.component';
+import { BurgerDoubleComponent } from './components/burger-double/burger-double.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AdditionalComponent } from './components/additional/additional.componen
     BreakfastComponent,
     RemainderComponent,
     OrderComponent,
-    AdditionalComponent
+    UserComponent,
+    BurgerSimpleComponent,
+    BurgerDoubleComponent
   ],
   imports: [
     BrowserModule,
