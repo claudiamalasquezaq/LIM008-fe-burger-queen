@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nombre = 'Claudia';
-  apellido = 'Malásquez';
+  nombreCliente: string = '';
+
+  userToOrder(user: string) {
+    console.log(user);
+    this.nombreCliente = user;
+  }
 }
