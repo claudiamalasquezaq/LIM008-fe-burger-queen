@@ -1,8 +1,9 @@
 <body class="body-order">
     <p>{{ userName }}</p>
-    <div *ngFor="let product of order">
-        <p>{{ product.item }}</p>
-        <p>$ {{ product.precio }}</p>
-        <button class="btn-delete" (click)="deleteProduct(order, product.id)"></button>
+    <div *ngFor="let product of order" class="div-order">
+        <!-- <input type="number" class="input-num" value=1 (change)="addQuantityProduct(order, product.id, product.precio)" /> -->
+        <p class="col-4">{{ product.item }}</p>
+        <p class="col-4">$ {{ product.precio }}</p>
+        <button class="btn-delete col-4" (click)="deleteProduct(order, product.id)"></button>
     </div>
 </body>
