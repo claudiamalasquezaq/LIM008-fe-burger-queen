@@ -1,7 +1,6 @@
-.body-order { 
+.body-order {
     background: #FABC3C;
 }
-
 
 .btn-delete {
     background-image: url('https://image.flaticon.com/icons/png/512/221/221755.png');
@@ -10,4 +9,12 @@
     width: 25px;
     height: 25px;
     border-radius: 10px;
+}
+
+.div-order {
+    display: -webkit-box;
+}
+
+.input-num {
+    width: 30px;
 }
