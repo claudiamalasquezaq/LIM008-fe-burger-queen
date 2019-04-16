@@ -1,7 +1,7 @@
 <div class="div-menu-bar">
     <div class="div-date col-6">
-        <p>Día: {{ day }}/{{ month }}/{{ year }}</p>
-        <p>Hora: {{ hour }}:{{ minutes }} </p>
+        <p>Día: {{ today | date: 'shortDate' }}</p>
+        <p>Hora: {{ today | date: 'shortTime' }}</p>
     </div>
     <div class="col-3">
         <button type="button" class="btn btn-primary btn-menu" [routerLink]="['desayuno']">DESAYUNO</button>

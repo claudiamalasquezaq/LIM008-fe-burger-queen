@@ -6,19 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-bar.component.css']
 })
 export class MenuBarComponent {
-  year: number;
-  month: number;
-  day: number;
-
-  hour: number;
-  minutes: number;
+  today: any;
 
   constructor() {
-    this.year = new Date().getFullYear();
-    this.month = new Date().getMonth();
-    this.day = new Date().getDay();
-    this.hour = new Date().getHours();
-    this.minutes = new Date().getMinutes();
+    this.today = new Date();
   }
 
 }
