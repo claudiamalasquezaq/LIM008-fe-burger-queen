@@ -4,30 +4,34 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+// class orderList {
+//   fecha: Date;
+//   products: Array<object>;
+//   total: number;
+// };
+
 export class SendDataService {
   private productSource = new BehaviorSubject([]);
   currentProduct = this.productSource.asObservable();
-  // orderList = {
-  //   fecha: Date,
-  //   products: Array,
-  //   total: Number
-  // };
+
   arrOrder = [];
 
   constructor() { }
 
   addOrder(value) {
-    // console.log(this.arrOrder);
     const copyArr = this.arrOrder.map(product => product);
-    console.log(copyArr);
     copyArr.push(value);
-    this.updateOrder(copyArr);
     this.arrOrder = copyArr;
-    console.log(copyArr);
+    this.updateOrder(this.arrOrder);
   }
 
-  deleteOrder(value) {
-
+  deleteProduct(arrOrder, id) {
+    const newArr = arrOrder.filter((elem) => {
+      return (elem.id !== id);
+    });
+    this.arrOrder = newArr;
+    this.updateOrder(this.arrOrder);
   }
 
   updateOrder(value) {
