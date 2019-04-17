@@ -1,6 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SendDataService } from '../../services/send-data.service';
 
+
+interface Products {
+  id: string;
+  item: string;
+  precio: number;
+  quantity: number;
+  total: number;
+}
+
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -11,27 +20,15 @@ import { SendDataService } from '../../services/send-data.service';
 export class OrderComponent implements OnInit {
   @Input() userName: string;
 
-  // interface Order {
-  //   id: String,
-  //   item: String,
-  //   precio: Number
-  // }
+  cantTotal: number;
+  order: Products[];
 
-  order: object[];
-
-  deleteProduct(arr, id) {
+  deleteProduct(arr: Array<object>, id: string) {
     this.dataService.deleteProduct(arr, id);
   }
 
-  addQuantityProduct(arr, id, precio) {
-    arr.filter((elem) => {
-      if (elem.id === id) {
-        elem.count = 1;
-        elem.total = precio * elem.count;
-      }
-      // return arr;
-      console.log(arr);
-    });
+  changeQuantity(item: string, precio: number, cantidad: number) {
+    this.dataService.addQuantityProduct(item, precio, cantidad);
   }
 
   constructor(
@@ -39,7 +36,10 @@ export class OrderComponent implements OnInit {
   ) {
     this.dataService.currentProduct.subscribe(prod => {
       this.order = prod;
-      console.log(prod);
+    });
+
+    this.dataService.currentTotal.subscribe(tot => {
+      this.cantTotal = tot;
     });
    }
 
