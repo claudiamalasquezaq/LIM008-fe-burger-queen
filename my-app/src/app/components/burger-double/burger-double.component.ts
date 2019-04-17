@@ -15,8 +15,13 @@ export class BurgerDoubleComponent implements OnInit {
     private sendDataService: SendDataService
   ) { }
 
-  getAddProduct(product){
-    this.sendDataService.addOrder(product);
+  getAddProduct(product) {
+    const copyArr = {
+      ...product,
+      quantity: 1,
+      total: product.precio
+    };
+    this.sendDataService.addOrder(copyArr);
   }
 
   ngOnInit() {

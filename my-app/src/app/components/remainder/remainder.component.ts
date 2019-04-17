@@ -16,7 +16,12 @@ export class RemainderComponent implements OnInit {
   ) { }
 
   getAddProduct(product) {
-    this.sendDataService.addOrder(product);
+    const copyArr = {
+      ...product,
+      quantity: 1,
+      total: product.precio
+    };
+    this.sendDataService.addOrder(copyArr);
   }
   ngOnInit() {
     this.firestoreService.getRemainder()
