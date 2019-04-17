@@ -1,9 +1,12 @@
 <body class="body-order">
     <p>{{ userName }}</p>
     <div *ngFor="let product of order" class="div-order">
-        <!-- <input type="number" class="input-num" value=1 (change)="addQuantityProduct(order, product.id, product.precio)" /> -->
+        <input type="number" #cant [ngModel]="product.quantity" (change)="changeQuantity(product.item, product.precio, cant.value)" min="1" max="99" />
         <p class="col-4">{{ product.item }}</p>
-        <p class="col-4">$ {{ product.precio }}</p>
-        <button class="btn-delete col-4" (click)="deleteProduct(order, product.id)"></button>
+        <p class="col-1">{{ product.precio | currency }}</p>
+        <p class="col-3">{{ product.total | currency }}</p>
+        <button class="btn-delete col-3" (click)="deleteProduct(order, product.id)"></button>
     </div>
+    <p class="p-total">Total: {{ cantTotal }}</p>
+    <button class="col-12 bg-info text-white">Enviar pedido</button>
 </body>
