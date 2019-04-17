@@ -2,9 +2,30 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 
+// interface OrderList {
+//   fecha: Date;
+//   nameClient: string;
+//   products: [
+//     {
+//       id: string,
+//       item: string,
+//       precio: number
+//     }
+//   ];
+//   total: number;
+// }
+
+// interface Products {
+//   id: string;
+//   item: string;
+//   precio: number;
+// }
+
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class FirestoreService {
 
   constructor(
@@ -30,7 +51,7 @@ export class FirestoreService {
         return { id, ...data};
       }))
     );
-  } 
+  }
 
   getBurgerSimple() {
     return this.firedata.collection('burger-simple').snapshotChanges().pipe(
