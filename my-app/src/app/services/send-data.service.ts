@@ -1,23 +1,20 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Products } from '../components/order/order.component';
+import { FirestoreService } from './firestore/firestore.service';
 
 interface OrderList {
-  id: string;
-  item: string;
-  precio: number;
-  quantity: number;
+  fecha: Date;
+  hora: string;
+  products: Products[];
   total: number;
 }
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-// interface orderList {
-//   fecha: Date;
-//   products: Array<object>;
-//   total: number;
-// };
 
 export class SendDataService {
   private productSource = new BehaviorSubject([]);
@@ -26,9 +23,12 @@ export class SendDataService {
   private total = new BehaviorSubject(0);
   currentTotal = this.total.asObservable();
 
+
   arrOrder = [];
 
-  constructor() { }
+  constructor(
+    private firestore: FirestoreService
+  ) { }
 
   addOrder(value) {
     const copyArr = this.arrOrder.map(product => product);
@@ -54,7 +54,7 @@ export class SendDataService {
           ...product,
           quantity: cantidad,
           total: cantidad * precio
-        } as OrderList;
+        } as Products;
       } else {
         return product;
       }
@@ -71,5 +71,9 @@ export class SendDataService {
   calculateTotal(arr) {
     const sumaTotal = arr.reduce((sum, elem) => sum + elem.total, 0);
     this.total.next(sumaTotal);
+  }
+
+  getOrderMade(obj) {
+    this.firestore.sendOrderToFirebase(obj);
   }
 }
