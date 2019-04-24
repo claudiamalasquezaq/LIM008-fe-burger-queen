@@ -7,12 +7,13 @@ import { BurgerDoubleComponent } from './components/burger-double/burger-double.
 
 
 
-const routes: Routes = [
+export const routes: Routes = [
     { path: 'desayuno', component: BreakfastComponent },
     { path: 'otro-menu', component: RemainderComponent },
     { path: 'otro-menu/hamb-simple', component: BurgerSimpleComponent},
     { path: 'otro-menu/hamb-doble', component: BurgerDoubleComponent},
-    { path: '**', component: BreakfastComponent }
+    { path: '**', component: BreakfastComponent },
+    { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(routes);
