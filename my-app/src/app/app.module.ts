@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { APP_ROUTING } from './app.routes';
 
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
@@ -18,6 +19,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { UserComponent } from './components/user/user.component';
 import { BurgerSimpleComponent } from './components/burger-simple/burger-simple.component';
 import { BurgerDoubleComponent } from './components/burger-double/burger-double.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { BurgerDoubleComponent } from './components/burger-double/burger-double.
     APP_ROUTING,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
