@@ -73,4 +73,9 @@ export class FirestoreService {
     );
   }
 
+  sendOrderToFirebase(obj) {
+    this.firedata.collection('order').add(obj);
+    console.log('Se guardó el pedido');
+  }
+
 }
