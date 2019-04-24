@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SendDataService } from '../../services/send-data.service';
 
-
-interface Products {
+export interface Products {
   id: string;
   item: string;
   precio: number;
@@ -29,6 +28,22 @@ export class OrderComponent implements OnInit {
 
   changeQuantity(item: string, precio: number, cantidad: number) {
     this.dataService.addQuantityProduct(item, precio, cantidad);
+  }
+
+  getOrder(nameClient, products, total) {
+    const day = new Date().getDate();
+    const month = new Date().getMonth();
+    const year = new Date().getFullYear();
+    const hour = new Date().getHours();
+    const minutes = new Date().getMinutes();
+    const obj = {
+      date: day + '/' + month + '/' + year,
+      time: hour + ':' + minutes,
+      client: nameClient,
+      product: products,
+      tot: total
+    };
+    this.dataService.getOrderMade(obj);
   }
 
   constructor(
