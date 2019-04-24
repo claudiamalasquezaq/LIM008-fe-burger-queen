@@ -1,18 +1,12 @@
 <app-header></app-header>
-
 <app-menu-bar></app-menu-bar>
-
 <app-user (sendUser)="userToOrder($event)"></app-user>
-
 <div class="row">
     <div class="container col-6">
         <app-order [userName]="nombreCliente" class="body-order"></app-order>
-        <!-- <app-order></app-order> -->
     </div>
     <div class="container col-6">
         <router-outlet></router-outlet>
     </div>
 </div>
-
-
 <app-footer></app-footer>
