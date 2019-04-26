@@ -10,6 +10,8 @@ import { BurgerDoubleComponent } from './components/burger-double/burger-double.
 
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 describe('Router: App', () => {
   let location: Location;
@@ -18,8 +20,13 @@ describe('Router: App', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routes)],
-      declarations: [BreakfastComponent, RemainderComponent, BurgerSimpleComponent, BurgerDoubleComponent]
+      imports: [
+        RouterTestingModule.withRoutes(routes)
+      ],
+      declarations: [AppComponent, BreakfastComponent, RemainderComponent, BurgerSimpleComponent, BurgerDoubleComponent],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     });
 
     router = TestBed.get(Router);
@@ -39,15 +46,16 @@ describe('Router: App', () => {
   //   expect(done).toBeTruthy();
   // }));
 
-  // it('navigate to "" redirects you to /breakfast', fakeAsync(() => {
-  //   router.navigate(['']).then(() => {
-  //     expect(location.path()).toBe('/breakfast');
-  //   });
-  // }));
+  it('navigate to "" redirects you to /breakfast', fakeAsync(() => {
+    router.navigate(['']).then(() => {
+      expect(location.path()).toBe('/breakfast');
+    });
+  }));
 
-  // it('navigate to "remainder" takes you to /remainder', fakeAsync(() => {
-  //   router.navigate(['remainder']).then(() => {
-  //     expect(location.path()).toBe('/remainder');
-  //   });
-  // }));
+  it('navigate to "remainder" takes you to /remainder', fakeAsync(() => {
+    router.navigate(['remainder']).then(() => {
+      expect(location.path()).toBe('/remainder');
+    });
+  }));
+
 });
