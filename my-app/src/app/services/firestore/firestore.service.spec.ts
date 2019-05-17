@@ -4,11 +4,9 @@ import { FirestoreService } from './firestore.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 export const input: object[] = [
-  {
-    id: '',
-    item: '',
-    precio: 0
-  }
+  {id: 'p001', item: 'Café americano', precio: 5},
+  {id: 'p002', item: 'Café con leche', precio: 7},
+  {id: 'p003', item: 'Sandwich de jamón con queso', precio: 12}
 ];
 
 export const collectionStub = {

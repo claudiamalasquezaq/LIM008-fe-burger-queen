@@ -8,12 +8,12 @@ import { BurgerDoubleComponent } from './components/burger-double/burger-double.
 
 
 export const routes: Routes = [
+    { path: '', redirectTo: '/desayuno', pathMatch: 'full' },
     { path: 'desayuno', component: BreakfastComponent },
     { path: 'otro-menu', component: RemainderComponent },
     { path: 'otro-menu/hamb-simple', component: BurgerSimpleComponent},
     { path: 'otro-menu/hamb-doble', component: BurgerDoubleComponent},
-    { path: '**', component: BreakfastComponent },
-    { path: '', redirectTo: '', pathMatch: 'full' }
+    { path: '**', component: BreakfastComponent }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(routes);
